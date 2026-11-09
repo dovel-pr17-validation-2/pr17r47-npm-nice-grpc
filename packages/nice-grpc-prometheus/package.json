@@ -1,0 +1,54 @@
+{
+  "name": "nice-grpc-prometheus",
+  "version": "0.3.0",
+  "description": "Prometheus monitoring for nice-grpc",
+  "keywords": [
+    "grpc",
+    "nice-grpc",
+    "prometheus",
+    "monitoring",
+    "metrics"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deeplay-io/nice-grpc.git",
+    "directory": "packages/nice-grpc-prometheus"
+  },
+  "homepage": "https://github.com/deeplay-io/nice-grpc/tree/master/packages/nice-grpc-prometheus#readme",
+  "bugs": {
+    "url": "https://github.com/deeplay-io/nice-grpc/issues"
+  },
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/__tests__"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "vitest run",
+    "build": "tsc -P tsconfig.build.json",
+    "prepublishOnly": "npm run clean && npm run build && npm test",
+    "build:proto": "grpc_tools_node_protoc --ts_proto_out=./fixtures --ts_proto_opt=outputServices=generic-definitions,useExactTypes=false,outputTypeRegistry=true -I fixtures fixtures/*.proto",
+    "prepare": "npm run build:proto"
+  },
+  "author": "Daniel Lytkin <aikoven@deeplay.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node14": "^14.1.0",
+    "@types/defer-promise": "^1.0.0",
+    "@types/node": "^18.0.0",
+    "defer-promise": "^2.0.1",
+    "grpc-tools": "^1.13.1",
+    "nice-grpc": "^2.1.18",
+    "protobufjs": "^8.0.0",
+    "ts-proto": "^2.5.1"
+  },
+  "dependencies": {
+    "@prometheus-io/client": "^0.16.1",
+    "abort-controller-x": "^0.5.0",
+    "nice-grpc-common": "^2.0.4"
+  }
+}

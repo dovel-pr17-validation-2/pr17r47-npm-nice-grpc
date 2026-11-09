@@ -1,0 +1,44 @@
+{
+  "name": "nice-grpc-server-middleware-terminator",
+  "version": "2.0.20",
+  "description": "Server middleware for nice-grpc to terminate long-running calls on shutdown",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deeplay-io/nice-grpc.git",
+    "directory": "packages/nice-grpc-server-middleware-terminator"
+  },
+  "homepage": "https://github.com/deeplay-io/nice-grpc/tree/master/packages/nice-grpc-server-middleware-terminator#readme",
+  "bugs": {
+    "url": "https://github.com/deeplay-io/nice-grpc/issues"
+  },
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/__tests__"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "vitest run",
+    "build": "tsc -P tsconfig.build.json",
+    "prepublishOnly": "npm run clean && npm run build && npm test",
+    "build:proto": "grpc_tools_node_protoc --ts_proto_out=./fixtures --ts_proto_opt=outputServices=generic-definitions,useExactTypes=false,esModuleInterop=true -I fixtures fixtures/*.proto",
+    "prepare": "npm run build:proto"
+  },
+  "author": "Daniel Lytkin <aikoven@deeplay.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.13",
+    "@types/defer-promise": "^1.0.0",
+    "abort-controller-x": "^0.5.0",
+    "defer-promise": "^2.0.1",
+    "grpc-tools": "^1.13.1",
+    "nice-grpc": "^2.1.18",
+    "ts-proto": "^2.5.1"
+  },
+  "dependencies": {
+    "nice-grpc-common": "^2.0.4"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "ignoreChanges": [
+        "**/fixtures/**",
+        "**/__tests__/**",
+        "**/*.test.ts",
+        "**/*.md"
+      ],
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "message": "chore(release): publish"
+    }
+  },
+  "changelogPreset": "conventionalcommits",
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}

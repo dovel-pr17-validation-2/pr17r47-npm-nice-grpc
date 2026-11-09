@@ -1,0 +1,39 @@
+{
+  "name": "nice-grpc-root",
+  "version": "0.0.0",
+  "description": "A gRPC library that is nice to you",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "nice-grpc-web/@types/jasmine"
+    ]
+  },
+  "author": "Daniel Lytkin <aikoven@deeplay.io>",
+  "license": "MIT",
+  "scripts": {
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "prepare": "lerna run prepare && husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,md,json,yaml}": "prettier --write"
+  },
+  "devDependencies": {
+    "conventional-changelog-conventionalcommits": "^10.4.1",
+    "husky": "^9.0.11",
+    "lerna": "^10.1.1",
+    "lint-staged": "^17.6.0",
+    "mkdirp": "^3.0.1",
+    "prettier": "^2.8.8",
+    "rimraf": "^6.1.2",
+    "typescript": "~5.8.3",
+    "vitest": "^4.1.11"
+  },
+  "packageManager": "yarn@1.22.22",
+  "resolutions": {
+    "@types/parse-path": "7.0.3"
+  }
+}
