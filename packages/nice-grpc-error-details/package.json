@@ -37,7 +37,7 @@
     "ts-proto": "^2.5.1"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.2.5",
+    "@bufbuild/protobuf": "^2.17.0",
     "long": "^5.2.3",
     "nice-grpc-common": "^2.0.4",
     "protobufjs": "^8.0.0"
